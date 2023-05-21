@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const knowErros = {
-    ERROR_NAME: { code: 000, message: "ERROR MESSAGE" },
+  DUPLICATE_USER: { code: 400, message: "username already used" },
 };
 
 /** @type {import('express').ErrorRequestHandler} */
@@ -12,7 +12,7 @@ const middlewareError = (err, _req, res, _next) => {
   }
 
   const error = knowErros[err];
-  if(error) return res.status(error.code).json(`message: ${error.message}`);
+  if(error) return res.status(error.code).json(`${error.message}`);
   return res.status(500).json(`Internal Server Error`);
 }
 
