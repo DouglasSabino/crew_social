@@ -10,7 +10,12 @@ const serviceUsers = {
     const hashPassword = bcrypt.hashSync(password, salt);
     const newUser = { id, username, hashPassword, salt }
     await modelUsers.postUsers(newUser);
-  }
+  },
+  getUsers: async (body) => {
+    const { username } = body;
+    const user = await modelUsers.getUsers(username);
+    return user;
+  },
 }
 
 module.exports = { serviceUsers };

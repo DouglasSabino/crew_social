@@ -1,5 +1,6 @@
 const { middlewareError } = require('./middlewares/handleError');
 const { usersRouter } = require('./routers/usersRouter');
+const { loginRouter } = require('./routers/loginRouter');
 const { httpstatuscode } = require('./util/httpstatuscode');
 const { PORT } = process.env;
 const express = require('express');
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
 app.use(middlewareError);
 
 app.get('/', (_req, res) => {

@@ -1,7 +1,9 @@
+const { httpstatuscode } = require('../util/httpstatuscode');
 const Joi = require('joi');
 
 const knowErros = {
-  DUPLICATE_USER: { code: 400, message: "username already used" },
+  DUPLICATE_USER: { code: httpstatuscode.BAD_REQUEST, message: "username already used" },
+  USER_NOT_EXIST: { code: httpstatuscode.NOT_FOUND, message: "user not registred" }
 };
 
 /** @type {import('express').ErrorRequestHandler} */
