@@ -1,10 +1,12 @@
 const { serviceUsers } = require('../services/serviceUsers');
 const { httpstatuscode } = require('../util/httpstatuscode');
+const { schemaUser } = require('../util/validationsJoi/user');
 
 const controllerUsers = {
   /** @type {import('express').RequestParamHandler}*/
   postUsers: async (req, res, next) => {
     try {
+      await schemaUser.validationUser(req.body);
       await serviceUsers.postUsers(req.body);
       return res.status(httpstatuscode.CREATED).json({message: "User Registred Sucessfully !!"});   
     } catch (error) {

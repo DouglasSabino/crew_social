@@ -3,7 +3,7 @@ const Joi = require('joi');
 
 const knowErros = {
   DUPLICATE_USER: { code: httpstatuscode.BAD_REQUEST, message: "username already used" },
-  USER_NOT_EXIST: { code: httpstatuscode.NOT_FOUND, message: "user not registred" }
+  USER_NOT_EXIST: { code: httpstatuscode.UNAUTHORIZED, message: "invalid credentials" }
 };
 
 /** @type {import('express').ErrorRequestHandler} */
