@@ -8,6 +8,10 @@ const serviceMeetings = {
     const post = { id, username, spokenLanguages, city, freeTime };
     await modelMeetings.postMeeting(post);
   },
+  getMeeting: async () => {
+    const meetings = await modelMeetings.getMeeting();
+    return meetings; 
+  },
 };
 
 module.exports = { serviceMeetings };

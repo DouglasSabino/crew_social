@@ -6,4 +6,6 @@ const meetingsRouter = Router();
 
 meetingsRouter.post('/', controllerMeetings.postMeeting);
 
+meetingsRouter.get('/', controllerMeetings.getMeeting);
+
 module.exports = { meetingsRouter };

@@ -8,6 +8,11 @@ const modelMeetings = {
     "INSERT INTO meetings (id, username, spokenLanguages, city, freeTime) VALUES (?,?,?,?,?)";
     await db.execute(SQL_POST_MEETING, [ id, username, spokenLanguages, city, freeTime ]);
   },
+  getMeeting: async () => {
+    const SQL_GET_MEETING = "SELECT * FROM meetings";
+    const [meetings] = await db.execute(SQL_GET_MEETING);
+    return meetings;
+  },
 };
 
 module.exports = { modelMeetings };

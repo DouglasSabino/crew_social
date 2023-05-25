@@ -11,10 +11,17 @@ const controllerMeetings = {
       return res.status(httpstatuscode.CREATED)
       .json({ message: "meet created sucessfully" });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   },
+  getMeeting: async (req, res, next) => {
+    try {
+      const meetings = await serviceMeetings.getMeeting();
+      return res.status(httpstatuscode.OK).json(meetings);
+    } catch (error) {
+      next(error);
+    }
+  }
 };
 
 module.exports = { controllerMeetings };
