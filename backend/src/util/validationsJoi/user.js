@@ -5,16 +5,16 @@ const schemaUser = {
   validationUser: async (body) => {
     const schema = Joi.object({
         username: Joi.string().min(3).required().messages({
-          "string.min": `${httpstatuscode.BAD_REQUEST}|Usuario deve ter pelo menos 3 Caracteres`,
-          "string.empty": `${httpstatuscode.BAD_REQUEST}|Campo "username" é obrigatorio`,
+          "string.min": `${httpstatuscode.BAD_REQUEST}|User must be at least 3 Characters`,
+          "string.empty": `${httpstatuscode.BAD_REQUEST}|Field "username" is mandatory`,
         }),
         // https://pt.stackoverflow.com/questions/373574/regex-para-senha-forte
         // Link para ajuda (Joi + Regex)
         password: Joi.string().required()
         .pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z$*&@#]{8,}$/)
         .messages({
-          "string.pattern.base": `${httpstatuscode.BAD_REQUEST}|O "password" precise ter 8 digitos, incluindo letras maiusculas, menusculas e numeros`,
-          "string.empty": `${httpstatuscode.BAD_REQUEST}|Campo "password" é obrigatorio`
+          "string.pattern.base": `${httpstatuscode.BAD_REQUEST}|The "password" must be 8 digits, including uppercase, lowercase and numbers`,
+          "string.empty": `${httpstatuscode.BAD_REQUEST}|Field "password" is Mandatory`
         }),
       });
       await schema.validateAsync(body);
