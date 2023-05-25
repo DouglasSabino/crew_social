@@ -16,6 +16,10 @@ const schemaUser = {
           "string.pattern.base": `${httpstatuscode.BAD_REQUEST}|The "password" must be 8 digits, including uppercase, lowercase and numbers`,
           "string.empty": `${httpstatuscode.BAD_REQUEST}|Field "password" is Mandatory`
         }),
+        spokenLanguages: Joi.string().required()
+        .messages({
+          "string.empty": `${httpstatuscode.BAD_REQUEST}|Field "spoken languages" is Mandatory`
+        }),
       });
       await schema.validateAsync(body);
   }

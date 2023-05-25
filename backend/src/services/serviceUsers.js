@@ -4,11 +4,11 @@ const bcrypt = require('bcrypt');
 
 const serviceUsers = {
   postUsers: async (body) => {
-    const { username, password } = body;
+    const { username, password, spokenLanguages } = body;
     const [ id ] = makeSerial();
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = bcrypt.hashSync(password, salt);
-    const newUser = { id, username, hashPassword, salt }
+    const newUser = { id, username, hashPassword, salt, spokenLanguages }
     await modelUsers.postUsers(newUser);
   },
   getUsers: async (body) => {

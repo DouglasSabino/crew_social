@@ -8,6 +8,7 @@ postMeeting: async (req, res, next) => {
     await serviceMeetings.postMeeting(req.body);
     return res.status(httpstatuscode.CREATED).json({message: "User Created Succesfully"});
   } catch (error) {
+    console.log(error);
     next(error);    
   }
 },

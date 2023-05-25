@@ -14,6 +14,4 @@ const makeToken = {
   }
 }
 
-console.log(makeToken.coder({name: "Douglas", idade: 25}));
-
 module.exports = { makeToken };
