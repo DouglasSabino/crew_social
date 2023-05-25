@@ -10,7 +10,6 @@ const controllerUsers = {
       await serviceUsers.postUsers(req.body);
       return res.status(httpstatuscode.CREATED).json({message: "User Registred Sucessfully !!"});   
     } catch (error) {
-      console.log(error);
       if (error.sqlMessage && error.sqlMessage.includes("Duplicate")) 
       return next('DUPLICATE_USER');
       if (error.message.includes("spokenLanguages")){
