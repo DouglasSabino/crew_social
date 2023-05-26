@@ -23,6 +23,7 @@ const controllerMeetings = {
       next(error);
     }
   },
+  /** @type {import('express').RequestParamHandler} */
   getMeetingByUser: async (req, res, next) => {
     try {
       const meeting = await serviceMeetings.getMeetingByUser(req.body);
@@ -30,7 +31,17 @@ const controllerMeetings = {
     } catch (error) {
       next(error);
     }
-  }
+  },
+  /** @type {import('express').RequestParamHandler} */
+  deleteMeeting: async (req, res, next) => {
+    try {
+      await serviceMeetings.deleteMeeting(req.body);
+      return res.status(httpstatuscode.OK).json("Meeting deleted sucessfully");
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  },
 };
 
 module.exports = { controllerMeetings };

@@ -9,4 +9,6 @@ meetingsRouter.post('/', controllerMeetings.postMeeting);
 meetingsRouter.get('/', controllerMeetings.getMeeting);
 meetingsRouter.get('/username', controllerMeetings.getMeetingByUser);
 
+meetingsRouter.delete('/', controllerMeetings.deleteMeeting);
+
 module.exports = { meetingsRouter };

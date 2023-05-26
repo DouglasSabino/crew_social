@@ -3,7 +3,6 @@ const { db } = require("../models/connection");
 const modelMeetings = {
   postMeeting: async (post) => {
     const { id, username, spokenLanguages, city, freeTime } = post;
-    console.log(id, username, spokenLanguages, city, freeTime);
     const SQL_POST_MEETING =
     "INSERT INTO meetings (id, username, spokenLanguages, city, freeTime) VALUES (?,?,?,?,?)";
     await db.execute(SQL_POST_MEETING, [ id, username, spokenLanguages, city, freeTime ]);
@@ -14,10 +13,14 @@ const modelMeetings = {
     return meetings;
   },
   getMeetingByUser: async (username) => {
-    const SQL_GET_MEETING_BY_ID = "SELECT * FROM meetings WHERE username=?";
-    const [meeting] = await db.execute(SQL_GET_MEETING_BY_ID, [username]);
+    const SQL_GET_MEETING_BY_USERNAME = "SELECT * FROM meetings WHERE username=?";
+    const [meeting] = await db.execute(SQL_GET_MEETING_BY_USERNAME, [username]);
     return meeting;
   },
+  deleteMeeting: async (id) => {
+    const SQL_DELETE_METTING = "DELETE FROM meetings WHERE id=?";
+    await db.execute(SQL_DELETE_METTING, [id]);  
+  }
 };
 
 module.exports = { modelMeetings };

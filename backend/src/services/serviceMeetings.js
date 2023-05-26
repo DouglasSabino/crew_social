@@ -17,6 +17,10 @@ const serviceMeetings = {
     const meeting = await modelMeetings.getMeetingByUser(username);
     return meeting;
   },
+  deleteMeeting: async (body) => {
+    const { id } = body;
+    await modelMeetings.deleteMeeting(id);
+  }
 };
 
 module.exports = { serviceMeetings };
