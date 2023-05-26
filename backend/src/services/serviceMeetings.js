@@ -12,6 +12,11 @@ const serviceMeetings = {
     const meetings = await modelMeetings.getMeeting();
     return meetings; 
   },
+  getMeetingByUser: async (body) => {
+    const { username } = body; 
+    const meeting = await modelMeetings.getMeetingByUser(username);
+    return meeting;
+  },
 };
 
 module.exports = { serviceMeetings };

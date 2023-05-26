@@ -13,6 +13,11 @@ const modelMeetings = {
     const [meetings] = await db.execute(SQL_GET_MEETING);
     return meetings;
   },
+  getMeetingByUser: async (username) => {
+    const SQL_GET_MEETING_BY_ID = "SELECT * FROM meetings WHERE username=?";
+    const [meeting] = await db.execute(SQL_GET_MEETING_BY_ID, [username]);
+    return meeting;
+  },
 };
 
 module.exports = { modelMeetings };

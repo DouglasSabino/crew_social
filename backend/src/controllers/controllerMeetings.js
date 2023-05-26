@@ -14,10 +14,19 @@ const controllerMeetings = {
       next(error);
     }
   },
-  getMeeting: async (req, res, next) => {
+  /** @type {import('express').RequestParamHandler} */
+  getMeeting: async (_req, res, next) => {
     try {
       const meetings = await serviceMeetings.getMeeting();
       return res.status(httpstatuscode.OK).json(meetings);
+    } catch (error) {
+      next(error);
+    }
+  },
+  getMeetingByUser: async (req, res, next) => {
+    try {
+      const meeting = await serviceMeetings.getMeetingByUser(req.body);
+      return res.status(httpstatuscode.OK).json(meeting);
     } catch (error) {
       next(error);
     }
