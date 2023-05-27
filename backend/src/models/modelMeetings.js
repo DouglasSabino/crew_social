@@ -20,7 +20,7 @@ const modelMeetings = {
   deleteMeeting: async (id) => {
     const SQL_DELETE_METTING = "DELETE FROM meetings WHERE id=?";
     await db.execute(SQL_DELETE_METTING, [id]);  
-  }
+  },
 };
 
 module.exports = { modelMeetings };

@@ -2,6 +2,7 @@ const { httpstatuscode } = require('../util/httpstatuscode');
 const Joi = require('joi');
 
 const knowErros = {
+  INVALID_TOKEN: { code: httpstatuscode.UNAUTHORIZED, message: "please login" },
   NOT_SPOKEN_LANGUAGES: { code: httpstatuscode.BAD_REQUEST, message: "Please say the languages you speak " },
   DUPLICATE_USER: { code: httpstatuscode.BAD_REQUEST, message: "username already used" },
   USER_NOT_EXIST: { code: httpstatuscode.UNAUTHORIZED, message: "invalid credentials" }

@@ -38,7 +38,6 @@ const controllerMeetings = {
       await serviceMeetings.deleteMeeting(req.body);
       return res.status(httpstatuscode.OK).json("Meeting deleted sucessfully");
     } catch (error) {
-      console.log(error);
       next(error);
     }
   },

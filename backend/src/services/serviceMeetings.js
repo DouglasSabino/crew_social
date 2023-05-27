@@ -20,7 +20,7 @@ const serviceMeetings = {
   deleteMeeting: async (body) => {
     const { id } = body;
     await modelMeetings.deleteMeeting(id);
-  }
+  },
 };
 
 module.exports = { serviceMeetings };
