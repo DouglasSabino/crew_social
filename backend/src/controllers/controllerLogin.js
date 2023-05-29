@@ -13,6 +13,15 @@ const controllerLogin = {
       next(error);
     }
   },
+  /** @type {import ('express').RequestParamHandler} */
+  validateToken: async (req, res, next) => {
+    try {
+      const { user } = req;
+      return res.status(httpstatuscode.OK).json(user);
+    } catch (error) {
+      next(error);
+    }
+  },
 }
 
 module.exports = { controllerLogin };

@@ -6,7 +6,7 @@ const handlerTokenValidation = async (req, _res, next) => {
   if (!userToken) return next('INVALID_TOKEN');
   try {
     const decodedUser = makeToken.decoder(userToken);
-    req.username = decodedUser.payload;
+    req.user = decodedUser.payload;
   } catch (error) {
     return next('INVALID_TOKEN');
   }
