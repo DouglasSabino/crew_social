@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import appContext from './appContext';
 
 function ContextProvider({ children }) {
-  const [username, setUsername] = useState('Sabino');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const contextValue = {
     username, 
     setUsername,
+    password,
+    setPassword
   };
   
   return (
