@@ -5,12 +5,18 @@ import appContext from './appContext';
 function ContextProvider({ children }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confPassword, setConfPassword] = useState('');
+  const [spokenLanguages, setSpokenLanguages] = useState('');
 
   const contextValue = {
     username, 
     setUsername,
     password,
-    setPassword
+    setPassword,
+    confPassword, 
+    setConfPassword,
+    spokenLanguages, 
+    setSpokenLanguages
   };
   
   return (

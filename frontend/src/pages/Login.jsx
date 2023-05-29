@@ -1,5 +1,5 @@
 import appContext from '../context/appContext';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Axios from 'axios';
@@ -44,14 +44,14 @@ function Login() {
         <div className='px-8 py-6'>
           <input
             name='username'
-            className='w-full mb-4 px-4 py-2 rounded-md text-center'
+            className='w-full mb-4 px-4 py-2 rounded-md text-center font-bold'
             type="text"
             placeholder='Username'
             onChange={handleChange}
           />
           <input
             name='password'
-            className='w-full mb-4 px-4 py-2 rounded-md text-center'
+            className='w-full mb-4 px-4 py-2 rounded-md text-center font-bold'
             type="password"
             placeholder='Password'
             onChange={handleChange}
