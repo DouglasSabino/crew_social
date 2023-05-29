@@ -1,12 +1,13 @@
 import appContext from "../context/appContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Axios from "axios";
 
 import backgroundImage from "./ship_wallpaper.jpg";
 
-function Login() {
+function RegisterUser() {
+
   const {
     username,
     setUsername,
@@ -17,6 +18,11 @@ function Login() {
     spokenLanguages,
     setSpokenLanguages,
   } = useContext(appContext);
+  
+  useEffect(() => {
+    setSpokenLanguages([]);
+    console.log(spokenLanguages);
+  },[]);
 
   const history = useNavigate();
 
@@ -226,4 +232,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default RegisterUser;
