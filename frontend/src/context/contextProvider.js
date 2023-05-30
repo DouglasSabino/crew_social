@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import PropTypes from 'prop-types';
 import appContext from './appContext';
 
@@ -7,6 +7,9 @@ function ContextProvider({ children }) {
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const [spokenLanguages, setSpokenLanguages] = useState('');
+  const [meetings, setMeetings] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const contextValue = {
     username, 
@@ -16,7 +19,13 @@ function ContextProvider({ children }) {
     confPassword, 
     setConfPassword,
     spokenLanguages, 
-    setSpokenLanguages
+    setSpokenLanguages,
+    isMenuOpen, 
+    setIsMenuOpen,
+    isAnimating, 
+    setIsAnimating,
+    meetings, 
+    setMeetings
   };
   
   return (
