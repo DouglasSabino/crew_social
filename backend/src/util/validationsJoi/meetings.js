@@ -26,6 +26,11 @@ const schemaMeetings = {
         .messages({
           "string.empty": `${httpstatuscode.BAD_REQUEST}|Field "freeTime" is Mandatory`,
         }),
+      date: Joi.date()
+      .required()
+      .messages({
+        "any.required": `${httpstatuscode.BAD_REQUEST}|Field "date" is Mandatory`,
+      }),
     });
     await schema.validateAsync(body);
   },

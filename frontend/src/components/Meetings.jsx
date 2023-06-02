@@ -13,19 +13,19 @@ function Meetings() {
   }, []);
 
   return (
-    <div>
-    {
-      meetings.map((e) => (
+    <div className="relative z-0">
+      {meetings.map((e) => (
         <div key={e.id}>
           {`User: ${e.username}`}
           {`Spoke Languages: ${e.spokenLanguages}`}
           {`City: ${e.city}`}
           {`Free Time: ${e.freeTime}`}
         </div>
-      ))
-    }
+      ))}
     </div>
   );
+  
+
 }
 
 export default Meetings;

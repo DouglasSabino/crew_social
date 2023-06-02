@@ -11,6 +11,7 @@ const controllerMeetings = {
       return res.status(httpstatuscode.CREATED)
       .json({ message: "meet created sucessfully" });
     } catch (error) {
+      console.log(error);
       next(error);
     }
   },
